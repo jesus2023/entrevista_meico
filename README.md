@@ -15,8 +15,4 @@ El diseño está pensado para permitir agregar nuevos proveedores sin modificar 
 
 ## Cómo ejecutar el proyecto
 
-### Con Docker (recomendado)
-
-```bash
-docker compose build
-docker compose up
+leer el archivo DECISIONS.md
