@@ -1,7 +1,6 @@
 class Api::V1::PaymentsController < ApplicationController
-
   def create
-    processor = Paymments::PaymentProcessor.new(payment_params)
+    processor = Payments::PaymentProcessor.new(payment_params)
     result = processor.call
 
     if result.success?
@@ -9,12 +8,13 @@ class Api::V1::PaymentsController < ApplicationController
     else
       render json: { errors: result.errors }, status: :unprocessable_entity
     end
-    rescue StandardError => e
-      render json: { error: "error: "Internal error"" }, status: :internal_server_error
+  rescue => e
+    render json: { errors: ["Internal error"] }, status: :internal_server_error
   end
 
   private
-    def payment_params
-        params.require(:payment).permit(:amount, :currency, :payment_type)
-    end
+
+  def payment_params
+    params.permit(:amount, :currency, :payment_type, details: {})
+  end
 end

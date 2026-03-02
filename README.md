@@ -1,24 +1,22 @@
-# README
+# Payment Routing API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este proyecto implementa una API REST en Ruby on Rails que simula un sistema de enrutamiento de pagos entre distintos proveedores externos.
 
-Things you may want to cover:
+Actualmente el sistema permite:
 
-* Ruby version
+- Procesar pagos con tarjeta de crédito
+- Procesar pagos por transferencia bancaria
+- Aplicar comisiones según el proveedor
+- Estandarizar la respuesta sin importar el proveedor utilizado
 
-* System dependencies
+El diseño está pensado para permitir agregar nuevos proveedores sin modificar la lógica principal del sistema.
 
-* Configuration
+---
 
-* Database creation
+## Cómo ejecutar el proyecto
 
-* Database initialization
+### Con Docker (recomendado)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+docker compose build
+docker compose up
